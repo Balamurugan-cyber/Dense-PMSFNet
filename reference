@@ -29,3 +29,6 @@ Testing the Model
 After training, evaluate the model on the test set and generate predictions using:
 
 python test.py --config config.yaml
+This research introduces Dense-PMSFNet, a lightweight deep learning model designed for accurate segmentation of retinal vasculature and the Foveal Avascular Zone (FAZ) in Optical Coherence Tomography Angiography (OCTA) images. The model incorporates a DenseNet-based encoder and a Pyramidal Multi-Scale Fusion Module (PMSFM) to handle multi-scale vessel variations. A deep fusion decoder ensures high spatial precision. Evaluated on the OCTA-500 dataset, the model demonstrates state-of-the-art segmentation performance with a combined Dice + Focal loss, making it suitable for real-time diabetic retinopathy (DR) screening and clinical applications.
+
+
