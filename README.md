@@ -1,23 +1,104 @@
-# Dense-PMSFNet
-🧠 PMDFNet: Pyramidal Multi-scale Dense Fusion Network for Retinal Vessel and FAZ Segmentation
-🩺 Overview
-This repository contains the implementation of PMDFNet, a deep learning architecture designed for the automatic segmentation of retinal blood vessels and the Foveal Avascular Zone (FAZ) from Optical Coherence Tomography Angiography (OCTA) images.
+# 🧠 Dense-PMSFNet
 
-PMDFNet leverages multi-scale pyramidal fusion, dense encoder connections, and attention-based decoding to achieve high-accuracy segmentation results — essential for early diagnosis of Diabetic Retinopathy, macular ischemia, and other vascular-related retinal disorders.
+## PMDFNet: Pyramidal Multi-scale Dense Fusion Network for Retinal Vessel and FAZ Segmentation
 
-🎯 Project Objective
-To develop a deep learning-based solution that performs pixel-wise segmentation of retinal structures in OCTA images using a densely connected, multi-scale, and attention-enhanced network.
+---
 
-📊 Key Features
-🔗 Dense Encoder using DenseNet-121 for rich feature reuse
+### 📌 Overview
 
-🔺 Pyramidal Multi-Scale Fusion Module (MSPFM) to capture both local and global features
+**Dense-PMSFNet** implements **PMDFNet**, a deep learning architecture for automatic segmentation of retinal blood vessels and the **Foveal Avascular Zone (FAZ)** from **Optical Coherence Tomography Angiography (OCTA)** images.
 
+It combines multi-scale pyramidal feature extraction, dense connections, and attention-based decoding mechanisms to produce high-precision segmentation results—critical for early diagnosis of **Diabetic Retinopathy**, **macular ischemia**, and other retinal vascular disorders.
 
-🔄 Deep Decoder with Fusion Layer for accurate reconstruction
+---
 
-✅ High Dice and IoU Scores on OCTA-500 dataset
-The retinal vessels in the fundus are the only deeper microvessels in the human body that can be observed non-invasively. Changes in vessel diameter, curvature, and color can indicate clinical pathologies such as hypertension, diabetes, and atherosclerosis (Mookiah et al., 2021). For instance, diabetic retinopathy, a complication of diabetes, can lead to swelling of the blood vessels in the retinal, posing a significant threat to vision (Govindaswamy et al., 2020). Ophthalmologists can detect these changes using fundus images for early diagnosis of related diseases. However, the current manual labeling of retinal vessels is time-consuming and requires extensive expertise, leading to the potential oversight of fine diameter proliferative vessels (Yan, Yang, & Cheng, 2017). Additionally, challenges such as uneven brightness, low contrast, and high noise in fundus images have troubled clinicians. In this context, the development of automated and refined segmentation models is imperative for tackling these challenges effectively (Li et al., 2022a).
+### 🎯 Objective
 
-Low visibility in hazy weather causes the loss of image details in digital images captured by some imaging devices such as monitors. This paper proposes an end-to-end U-Net based residual network (URNet) to improve the visibility of hazy images. The encoder module of URNet uses hybrid convolution combining standard convolution with dilated convolution to expand the receptive field for extracting image features with more details. The URNet embeds several building blocks of ResNet into the junction between the encoder module and the decoder module. This prevents network performance degradation due to the vanishing gradient. After considering large absolute difference on image saturation and value components between hazy images and haze-free images in the HSV color space, the URNet defines a new loss function to better guide the network training. Experimental results on synthetic hazy images and real hazy images show that the URNet significantly improves the image dehazing effect compared to the state-of-the-art methods. (C) 2020 Elsevier B.V. All rights reserved.
-The purpose of this study was to evaluate early vascular and tomographic changes in the retina of diabetic patients using artificial intelligence (AI). The study included 74 age-matched normal eyes, 171 diabetic eyes without retinopathy (DWR) eyes and 69 mild non-proliferative diabetic retinopathy (NPDR) eyes. All patients underwent optical coherence tomography angiography (OCTA) imaging. Tomographic features (thickness and volume) were derived from the OCTA B-scans. These features were used in AI models. Both OCT and OCTA features showed significant differences between the groups (P < .05). However, the OCTA features indicated early retinal changes in DWR eyes better than OCT (P < .05). In the AI model using both OCT and OCTA features simultaneously, the best area under the curve of 0.91 ± 0.02 was obtained (P < .05). Thus, the combined use of AI, OCT and OCTA significantly improved the early diagnosis of diabetic changes in the retina.
+To design a pixel-wise segmentation network that:
+- Utilizes densely connected encoders,
+- Fuses multi-scale contextual features,
+- Enhances decoding with attention mechanisms,
+- Achieves high accuracy on OCTA datasets.
+
+---
+
+### 📊 Key Features
+
+- 🔗 **Dense Encoder**: Leverages **DenseNet-121** for rich feature reuse and gradient flow.
+- 🔺 **Pyramidal Multi-Scale Fusion Module (MSPFM)**: Captures both **local and global** spatial features for improved segmentation context.
+- 🧠 **Attention-based Deep Decoder**: Refines output by fusing important spatial-channel information.
+- 📈 **Superior Metrics**: Achieves **high Dice and IoU** scores on the **OCTA-500** dataset.
+
+---
+
+### 📚 Motivation
+
+- Retinal vessels are the only deep microvessels in the human body that can be observed **non-invasively**.
+- Pathological changes (diameter, color, curvature) indicate diseases like **diabetic retinopathy**, **hypertension**, and **atherosclerosis**.
+- Manual annotation of retinal vessels is **time-consuming** and prone to **human error**.
+- Fundus images present challenges like **low contrast**, **uneven illumination**, and **noise**.
+- Hence, an **automated segmentation model** like PMDFNet helps ophthalmologists in **early disease detection**.
+
+---
+
+### 🔍 Clinical Relevance
+
+> *"Ophthalmologists can detect early microvascular changes from fundus images; however, manual processes are prone to oversight, especially with fine-diameter vessels. Dense-PMSFNet automates this, providing consistent and accurate support for medical professionals."*
+
+---
+
+### 🧪 Dataset
+
+- **OCTA-500** Dataset: A publicly available, annotated OCTA image dataset used for evaluating vessel and FAZ segmentation performance.
+
+---
+
+### 🧠 Model Architecture
+
+1. **Encoder**:
+   - Based on **DenseNet-121**
+   - Promotes feature reuse and mitigates vanishing gradients
+
+2. **MSPFM** (Multi-Scale Pyramidal Fusion Module):
+   - Aggregates multi-resolution features
+   - Balances fine and coarse information
+
+3. **Decoder with Attention**:
+   - Improves spatial awareness in the segmentation output
+   - Merges multi-level features for precise boundary delineation
+
+---
+
+### 💬 Related Research Insights
+
+- **AI in Retinal Imaging**:
+  > A study using AI on OCTA B-scans showed that tomographic and vascular features significantly differ between diabetic and healthy eyes. The AI model achieved an **AUC of 0.91**, indicating its potential in **early detection** of diabetic changes.
+
+- **Dehazing in Medical Imaging**:
+  > Low visibility in hazy conditions degrades imaging quality. The **URNet** model (UNet + ResNet blocks + dilated convolution) was proposed to enhance such images, ensuring more robust feature extraction in medical and real-world scenarios.
+
+---
+
+### 🤝 Contributing
+
+If you'd like to contribute:
+1. Fork the repo
+2. Create a new branch (`git checkout -b feature-name`)
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+---
+
+### 📜 Citations
+
+If you use this work, please cite:
+
+```bibtex
+@article{yourcitation2025,
+  title={PMDFNet: Pyramidal Multi-scale Dense Fusion Network for Retinal Vessel and FAZ Segmentation},
+  author={Author1, Author2, Contributor},
+  journal={Medical Image Analysis},
+  year={2025},
+  publisher={Elsevier}
+}
