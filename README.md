@@ -13,7 +13,6 @@ To develop a deep learning-based solution that performs pixel-wise segmentation 
 
 🔺 Pyramidal Multi-Scale Fusion Module (MSPFM) to capture both local and global features
 
-🧠 scSE Attention Blocks to focus on clinically relevant vessel regions
 
 🔄 Deep Decoder with Fusion Layer for accurate reconstruction
 
